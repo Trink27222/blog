@@ -3,8 +3,8 @@ server:
 spring:
   datasource:
     username: root
-    password: 123
-    url: jdbc:mysql://localhost:3306/myblog?useSSL=false&characterEncoding=utf-8
+    password: Trink27222
+    url: jdbc:mysql://localhost:3306/myblog?useSSL=false&characterEncoding=utf-8&serverTimezone=CST
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 初始化大小，最小，最大

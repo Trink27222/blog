@@ -97,7 +97,7 @@ public class ArticleController {
     @ApiOperation("获取所有文章")
     @GetMapping(name = "获得所有文章", value = "/selectAll")
     public Object selectAllArticle(PageForm form,HttpServletRequest request) {
-        visitorService.addVisitorNum(request);
+        //visitorService.addVisitorNum(request);
         return articleService.selectAll(form.getPageNum(), form.getPageSize());
     }
 

@@ -26,8 +26,5 @@ public class UserInsertForm {
     @ApiModelProperty("注册用户名")
     private String username;
 
-    @NotNull(message = "注册验证码不能为空")
-    @ApiModelProperty("注册验证码")
-    private String code;
 
 }

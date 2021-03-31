@@ -141,13 +141,8 @@ public class UserServiceImpl implements UserService {
         if (userMapper.selectByPhoneNum(userInsertForm.getPhoneNumber()) != null) {
             return ResultVOUtil.error(ResultEnum.USER_ALREADY_EXIST);
         }
-        String code = redisService.get(PhoneCodeKey.phoneCodeKey, userInsertForm.getPhoneNumber(), String.class);
-        if (code == null) {
-            return ResultVOUtil.error(ResultEnum.CODE_IS_NULL);
-        }
-        if (!code.equals(userInsertForm.getCode())) {
-            return ResultVOUtil.error(ResultEnum.PHONE_CODE_ERROR);
-        }
+
+
         String password = userInsertForm.getPassword();
         password = new BCryptPasswordEncoder().encode(password);
         userInsertForm.setPassword(password);
@@ -183,9 +178,6 @@ public class UserServiceImpl implements UserService {
             return ResultVOUtil.error(ResultEnum.USER_NOT_EXIST);
         }
         String code = redisService.get(PhoneCodeKey.phoneCodeKey, form.getPhoneNum(), String.class);
-        if (code == null) {
-            return ResultVOUtil.error(ResultEnum.CODE_IS_NULL);
-        }
         if (!code.equals(form.getCode())) {
             return ResultVOUtil.error(ResultEnum.PHONE_CODE_ERROR);
         }
